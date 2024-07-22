@@ -1,54 +1,39 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import About from './About';
+import Resume from './Resume';
+import Projects from './Projects';
+import Contact from './Contact';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <nav>
-          <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <section id="about">
-          <h1>About Me</h1>
-          <p>Welcome! I'm John Paul Maja, a cum laude dean's lister graduate with experience as a Quality Assurance Analyst/Tester and development experience during an internship.</p>
-        </section>
-        <section id="resume">
-          <h1>Resume</h1>
-          <h2>Education</h2>
-          <p>[Details]</p>
-          <h2>Experience</h2>
-          <p>[Details]</p>
-          <h2>Skills</h2>
-          <p>[Details]</p>
-        </section>
-        <section id="projects">
-          <h1>Projects</h1>
-          <p>[Details about notable projects]</p>
-        </section>
-        <section id="contact">
-          <h1>Contact</h1>
-          <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </section>
-      </main>
-      <footer>
-        <p>&copy; 2024 John Paul Maja</p>
-      </footer>
-    </div>
+    <Router>
+      <div className="font-sans text-gray-800 min-h-screen flex flex-col">
+        <header className="bg-gray-900 text-white py-4">
+          <nav className="container mx-auto flex justify-between items-center">
+            <h1 className="text-xl font-bold">John Paul Maja</h1>
+            <ul className="flex space-x-4">
+              <li><Link to="/about" className="hover:underline">About Me</Link></li>
+              <li><Link to="/resume" className="hover:underline">Resume</Link></li>
+              <li><Link to="/projects" className="hover:underline">Projects</Link></li>
+              <li><Link to="/contact" className="hover:underline">Contact</Link></li>
+            </ul>
+          </nav>
+        </header>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/" element={<About />} /> {/* Default route */}
+          </Routes>
+        </main>
+        <footer className="bg-gray-900 text-white py-4 text-center">
+          <p>&copy; 2024 John Paul Maja</p>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
