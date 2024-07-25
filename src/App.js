@@ -1,5 +1,5 @@
 // src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import About from './About';
@@ -7,16 +7,21 @@ import Resume from './Resume';
 import Projects from './Projects';
 import Contact from './Contact';
 import HomePage from './HomePage';
+import Modal from './Modal';
 import './index.css';
 
 function App() {
+  const [modalOpen, setModalOpen] = useState(true);
+
+  const closeModal = () => setModalOpen(false);
+
   return (
     <Router basename="/maja-resume">
       <div className="font-sans text-gray-800 min-h-screen flex flex-col bg-gray-100">
         <header className="bg-gray-900 text-white py-4 shadow-lg">
           <nav className="container mx-auto flex justify-between items-center px-4">
             <h1 className="text-xl font-bold tracking-wide">
-                John Paul Maja
+              John Paul Maja
             </h1>
             <ul className="flex space-x-6">
               <li>
@@ -58,6 +63,7 @@ function App() {
               <Route path="*" element={<HomePage />} /> {/* Catch-all route */}
             </Routes>
           </AnimatePresence>
+          <Modal isOpen={modalOpen} onRequestClose={closeModal} />
         </main>
         <footer className="bg-gray-900 text-white py-4 text-center">
           <p>&copy; 2024 John Paul Maja. All rights reserved.</p>
