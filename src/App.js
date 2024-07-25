@@ -11,7 +11,7 @@ import './index.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/maja-resume">
       <div className="font-sans text-gray-800 min-h-screen flex flex-col bg-gray-100">
         <header className="bg-gray-900 text-white py-4 shadow-lg">
           <nav className="container mx-auto flex justify-between items-center px-4">
@@ -19,8 +19,8 @@ function App() {
                 John Paul Maja
             </h1>
             <ul className="flex space-x-6">
-            <li>
-                <Link to="/home" className="hover:text-gray-400 transition duration-200 ease-in-out">
+              <li>
+                <Link to="/" className="hover:text-gray-400 transition duration-200 ease-in-out">
                   Home
                 </Link>
               </li>
@@ -50,11 +50,12 @@ function App() {
         <main className="flex-grow container mx-auto px-4 py-8">
           <AnimatePresence>
             <Routes>
-              <Route path="/home" element={<HomePage />} /> {/* Default route */}
+              <Route path="/" element={<HomePage />} /> {/* Default route */}
               <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<HomePage />} /> {/* Catch-all route */}
             </Routes>
           </AnimatePresence>
         </main>
