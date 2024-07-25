@@ -16,11 +16,14 @@ function App() {
         <header className="bg-gray-900 text-white py-4 shadow-lg">
           <nav className="container mx-auto flex justify-between items-center px-4">
             <h1 className="text-xl font-bold tracking-wide">
-              <Link to="/" className="hover:text-gray-400 transition duration-200 ease-in-out">
                 John Paul Maja
-              </Link>
             </h1>
             <ul className="flex space-x-6">
+            <li>
+                <Link to="/home" className="hover:text-gray-400 transition duration-200 ease-in-out">
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link to="/about" className="hover:text-gray-400 transition duration-200 ease-in-out">
                   About Me
@@ -47,7 +50,7 @@ function App() {
         <main className="flex-grow container mx-auto px-4 py-8">
           <AnimatePresence>
             <Routes>
-              <Route path="/" element={<HomePage />} /> {/* Default route */}
+              <Route path="/home" element={<HomePage />} /> {/* Default route */}
               <Route path="/about" element={<About />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/projects" element={<Projects />} />
