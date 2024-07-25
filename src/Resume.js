@@ -1,16 +1,38 @@
+// src/Resume.js
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1 } }
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+};
 
 function Resume() {
   return (
-    <section className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-4">Resume</h2>
-      <h3 className="text-2xl font-semibold">Education</h3>
-      <p>[Details]</p>
-      <h3 className="text-2xl font-semibold mt-4">Experience</h3>
-      <p>[Details]</p>
-      <h3 className="text-2xl font-semibold mt-4">Skills</h3>
-      <p>[Details]</p>
-    </section>
+    <motion.div
+      className="container mx-auto px-4 py-8"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.section
+        className="mb-12"
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl font-bold mb-6">Resume</h2>
+        <p className="text-lg mb-4">
+          Here you can download my detailed resume which includes information about my skills, experiences, and projects.
+        </p>
+        <a href="/path/to/resume.pdf" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-transform transform hover:scale-105">
+          Download Resume
+        </a>
+      </motion.section>
+    </motion.div>
   );
 }
 
