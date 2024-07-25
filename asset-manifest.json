@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/maja-resume/static/css/main.00f1e6c6.css",
-    "main.js": "/maja-resume/static/js/main.31ef9a97.js",
+    "main.js": "/maja-resume/static/js/main.f1e982ad.js",
     "index.html": "/maja-resume/index.html",
     "main.00f1e6c6.css.map": "/maja-resume/static/css/main.00f1e6c6.css.map",
-    "main.31ef9a97.js.map": "/maja-resume/static/js/main.31ef9a97.js.map"
+    "main.f1e982ad.js.map": "/maja-resume/static/js/main.f1e982ad.js.map"
   },
   "entrypoints": [
     "static/css/main.00f1e6c6.css",
-    "static/js/main.31ef9a97.js"
+    "static/js/main.f1e982ad.js"
   ]
 }
